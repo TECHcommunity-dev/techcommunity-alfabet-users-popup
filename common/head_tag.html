@@ -1,0 +1,50 @@
+
+<script type="text/discourse-plugin" version="0.8">
+/* Display Alfabet Popup on Every page is the user belogs to alfabet-users group [14-01-2021]*/
+api.onPageChange(() => {
+    //Current loggedin user
+    var user = api.getCurrentUser();
+    if(user){
+         const path = window.location.pathname;
+        //Groups
+        var currentuserGroups = [];
+        (user.groups).forEach(function (groupObj, index) {
+            currentuserGroups.push(String(groupObj.name).toLowerCase());
+        });
+        
+        //Check whether user belongs to alfabet-users group
+        if(currentuserGroups.indexOf(("alfabet-users").toLowerCase()) !== -1){
+            $("#alfabet-users-popup").show(); 
+            $(".custom-footer").css("margin-bottom","135px");
+        }else{
+            $("#alfabet-users-popup").hide(); 
+            $(".custom-footer").css("margin-bottom","0px");
+        } 
+    }
+
+});
+
+//Close Alfabet Popup
+$( document ).ready(function() {
+    $(".close-alfabet-users-popup .close").click(function() {
+        $("#alfabet-users-popup").hide(); 
+        $(".custom-footer").css("margin-bottom","0px");
+    });
+});
+
+</script>
+<script type="text/x-handlebars" data-template-name="/connectors/below-footer/alfabet-users-popup">
+  <div id="alfabet-users-popup">
+    <div class="alfabet-users-wrapper">
+    <div class="close-alfabet-users-popup">
+        <span class="close">x</span>
+    </div>
+    <div class="alfabet-users-description">Access to Alfabet customer groups</div>
+    <div class="alfabet-users-links">
+        <a href="/c/Alfabet">Alfabet User Group</a>
+        <a href="/c/alfabet-fastlane">Alfabet FastLane</a>
+    </div>
+    </div>
+  </div>
+</script>
+
