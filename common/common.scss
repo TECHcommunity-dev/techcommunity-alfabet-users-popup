@@ -1,3 +1,5 @@
+//techcommunity-alfabet-users-popup - common.scss
+
 /* CSS for Alfabet Users Popup */
 #alfabet-users-popup{
     position: fixed;
@@ -21,7 +23,7 @@
 .close-alfabet-users-popup .close{
    float: right;
     color: #000;
-    background-color: #ffffff;
+    background-color: var(--secondary);
     padding: 3px 10px 5px 10px;
     position: absolute;
     top: 0;
@@ -36,7 +38,7 @@
 }
 .close-alfabet-users-popup .close:hover{
   background-color: #000;
-  color: #ffffff;
+  color: var(--secondary);
 }
 
 .alfabet-users-description{
@@ -52,7 +54,7 @@
 }
 
 .alfabet-users-links a{
-    background-color: #ffffff;
+    background-color: var(--secondary);
     color: #000000;
     padding: 15px 20px;
     margin: 10px;
@@ -65,7 +67,7 @@
 }
 
 .alfabet-users-links a:hover {
-    background-color: #1c5569 !important;
-    color: #ffffff !important;
+    background-color: var(--quaternary) !important;
+    color: var(--secondary) !important;
     box-shadow: none;
 }
